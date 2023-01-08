@@ -9,5 +9,5 @@
     "strict": true,
     "composite": true
   },
-  "include": ["types/contracts/**/*"]
+  "include": ["**/*.ts"]
 }

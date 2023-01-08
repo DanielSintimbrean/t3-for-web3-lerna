@@ -18,11 +18,13 @@ import "../styles/globals.css";
 import { useSession } from "../hooks/useSession";
 import { useMemo } from "react";
 import { SiweMessage } from "siwe";
+import { env } from "../env/client.mjs";
+import { useAuth } from "../hooks/useAuth";
 
 // Wagmi configuration
 // ===================
 export const { chains, provider } = configureChains(
-  [polygon, localhost],
+  [env.NEXT_PUBLIC_LOCAL_BLOCKCHAIN ? localhost : polygon],
   [publicProvider()]
 );
 
@@ -32,37 +34,22 @@ const { connectors } = getDefaultWallets({
 });
 
 const client = createClient({
-  autoConnect: false,
+  autoConnect: true,
   connectors,
   provider,
 });
 
 const MyApp: AppType = ({ Component, pageProps: { ...pageProps } }) => {
   let sessionStatus: AuthenticationStatus = "unauthenticated";
-  const utils = trpc.useContext();
   const { authenticated, loading } = useSession();
 
-  const { refetch: fetchNonce } = trpc.auth.nonce.useQuery(undefined, {
-    enabled: false,
-  });
-
-  const { mutateAsync: verify } = trpc.auth.verify.useMutation({
-    onSuccess: () => {
-      utils.auth.invalidate();
-    },
-  });
-
-  const { mutateAsync: logOut } = trpc.auth.logout.useMutation({
-    onSuccess: () => {
-      utils.auth.invalidate();
-    },
-  });
+  const { getNonce, logout, verifySignature } = useAuth();
 
   const authenticationAdapter = useMemo(
     () =>
       createAuthenticationAdapter({
         getNonce: async () => {
-          const { data: nonceData } = await fetchNonce();
+          const { data: nonceData } = await getNonce();
           return nonceData?.nonce ?? "";
         },
 
@@ -83,7 +70,7 @@ const MyApp: AppType = ({ Component, pageProps: { ...pageProps } }) => {
         },
 
         verify: async ({ message, signature }) => {
-          const verifyRes = await verify({
+          const verifyRes = await verifySignature({
             message,
             signature,
           });
@@ -91,14 +78,14 @@ const MyApp: AppType = ({ Component, pageProps: { ...pageProps } }) => {
         },
 
         signOut: async () => {
-          const res = await logOut();
+          const res = await logout();
 
           if (!res.ok) {
             throw new Error("Failed to logout");
           }
         },
       }),
-    [fetchNonce, verify, logOut]
+    [getNonce, verifySignature, logout]
   );
 
   if (loading) sessionStatus = "loading";

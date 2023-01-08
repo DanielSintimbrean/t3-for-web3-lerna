@@ -34,7 +34,7 @@ contract Lock {
         owner.transfer(address(this).balance);
     }
 
-    function setStorageVariable(uint256 _storageVariable) public {
+    function setStorageVariable2(uint256 _storageVariable) public {
         require(msg.sender == owner, "You aren't the owner");
         storageVariable = _storageVariable;
     }

@@ -18,7 +18,7 @@ const ProfilePage: NextPage = () => {
   const trpcUtils = trpc.useContext();
   const router = useRouter();
 
-  const { data, refetch } = useContractRead({
+  const { data, refetch: refetchGetStorage } = useContractRead({
     address,
     abi,
     functionName: "getStorageVariable",
@@ -27,16 +27,19 @@ const ProfilePage: NextPage = () => {
   const { config } = usePrepareContractWrite({
     abi,
     address,
-    functionName: "setStorageVariable",
+    functionName: "setStorageVariable2",
     args: [data ? BigNumber.from(data).add(1) : BigNumber.from(0)],
     onSuccess: async () => {
-      await refetch();
+      await refetchGetStorage();
     },
   });
 
   const { write, data: txData } = useContractWrite(config);
 
-  useWaitForTransaction({ hash: txData?.hash, onSuccess: () => refetch() });
+  useWaitForTransaction({
+    hash: txData?.hash,
+    onSuccess: () => refetchGetStorage(),
+  });
 
   const session = useSession();
   const [newName, setNewName] = useState("");
@@ -58,6 +61,8 @@ const ProfilePage: NextPage = () => {
   if (!session.authenticated) {
     return <Layout>Loading...</Layout>;
   }
+
+  console.log({ write });
 
   return (
     <Layout>

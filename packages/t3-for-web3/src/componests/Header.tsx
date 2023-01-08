@@ -1,16 +1,28 @@
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Link from "next/link";
+import { useAccount } from "wagmi";
+import { useAuth } from "../hooks/useAuth";
 import { useSession } from "../hooks/useSession";
-import { Profile } from "./siwe/Profile";
 
-// The approach used in this component shows how to build a sign in and sign out
-// component that works on pages which support both client and server side
-// rendering, and avoids any flash incorrect content on initial page load.
 export default function Header() {
-  const { authenticated } = useSession();
+  const session = useSession();
+  const authenticated = session.authenticated;
+  const { isDisconnected, address } = useAccount();
+  const { logout, isLoggingOut } = useAuth();
+
+  // Need to use isLoggingOut to avoid to much re-renders when logging out.
+  if (
+    authenticated &&
+    !isLoggingOut &&
+    (isDisconnected || session.user.address !== address)
+  ) {
+    logout();
+  }
+
   return (
     <header className="mx-5  flex flex-row items-center justify-between rounded-b-xl bg-gradient-to-br from-purple-600 to-purple-700 text-red-50">
       <div className="m-5">
-        <Profile></Profile>
+        <ConnectButton showBalance={false} accountStatus={"address"} />
       </div>
       <nav className="">
         <ul className="m-5 flex flex-row gap-5">
