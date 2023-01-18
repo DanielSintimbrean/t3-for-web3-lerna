@@ -11,10 +11,10 @@ importers:
   packages/hardhat:
     specifiers:
       '@nomicfoundation/hardhat-toolbox': ^2.0.0
-      erc721l: ^0.0.6
+      erc721l: ^0.0.10
       hardhat: ^2.12.5
     dependencies:
-      erc721l: 0.0.6
+      erc721l: 0.0.10
     devDependencies:
       '@nomicfoundation/hardhat-toolbox': 2.0.0_qkk7im6hq722gxbuzyccjwsroy
       hardhat: 2.12.5_z6wznmtyb6ovnulj6iujpct7um
@@ -5591,8 +5591,8 @@ packages:
     hasBin: true
     dev: true
 
-  /erc721l/0.0.6:
-    resolution: {integrity: sha512-o7n7jL3R5yf7IkWYHlRroFwjZV93c2mGnz3IrABuc/sd+VbaGte3D6LcXAMpIksih/34USQMA7xg15YAu6F+8Q==}
+  /erc721l/0.0.10:
+    resolution: {integrity: sha512-uHh+x21jnlEABR173NPsQh4J6CjLug3B7lyFvM3x+Jf/givc6XgAuI5N+d/TLZER4pwB5+6y1IyP/myU5I/5Qg==}
     dependencies:
       '@openzeppelin/contracts': 4.8.0
     dev: false
@@ -6467,18 +6467,6 @@ packages:
     peerDependenciesMeta:
       debug:
         optional: true
-
-  /follow-redirects/1.15.2_debug@4.3.4:
-    resolution: {integrity: sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==}
-    engines: {node: '>=4.0'}
-    peerDependencies:
-      debug: '*'
-    peerDependenciesMeta:
-      debug:
-        optional: true
-    dependencies:
-      debug: 4.3.4
-    dev: true
 
   /for-each/0.3.3:
     resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==}
@@ -10440,7 +10428,7 @@ packages:
     dependencies:
       command-exists: 1.2.9
       commander: 3.0.2
-      follow-redirects: 1.15.2_debug@4.3.4
+      follow-redirects: 1.15.2
       fs-extra: 0.30.0
       js-sha3: 0.8.0
       memorystream: 0.3.1
