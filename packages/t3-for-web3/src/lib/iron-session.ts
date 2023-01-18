@@ -7,5 +7,6 @@ export const sessionOptions: IronSessionOptions = {
   cookieOptions: {
     secure: process.env.NODE_ENV === "production",
   },
+
   ttl: 60 * 5,
 };

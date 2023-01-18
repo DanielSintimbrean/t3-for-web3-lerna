@@ -8,7 +8,7 @@ const Home: NextPage = () => {
   const trpcUtils = trpc.useContext();
   const hello = trpc.example.hello.useQuery({ text: "from tRPC" });
   const secret = trpc.auth.getSecretMessage.useQuery(undefined, {
-    retry(failureCount, error) {
+    retry(_, error) {
       if (error?.shape?.data.code === "UNAUTHORIZED") {
         trpcUtils.auth.getSecretMessage.setData(undefined, "Not logged in");
         return false;
@@ -33,6 +33,7 @@ const Home: NextPage = () => {
           <p className="text-2xl text-white">
             {hello.data ? hello.data.greeting : "Loading tRPC query..."}
           </p>
+
           <p className="text-2xl text-white">
             Secret Message <br />
             {secret.data}

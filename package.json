@@ -6,9 +6,11 @@
   ],
   "scripts": {
     "dev": "lerna run dev --concurrency=10 --parallel",
-    "build": "lerna run build --concurrency=10 --parallel"
+    "build": "lerna run build --concurrency=10 --parallel",
+    "prepare": "husky install"
   },
   "devDependencies": {
+    "husky": "^8.0.3",
     "lerna": "^6.4.0"
   }
 }

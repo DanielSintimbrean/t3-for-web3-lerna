@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "precommit": "lint-staged",
     "build": "next build",
     "dev": "next dev",
     "postinstall": "prisma generate && typechain --target=ethers-v5 --out-dir=src/smart-contracts/types src/smart-contracts/abi/*.json",
@@ -25,6 +26,7 @@
     "@typechain/ethers-v5": "^10.2.0",
     "ethers": "^5.7.2",
     "iron-session": "^6.3.1",
+    "my-hardhat": "*",
     "next": "13.1.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -33,8 +35,7 @@
     "tozod": "^3.0.0",
     "typechain": "^8.1.1",
     "wagmi": "^0.10.0",
-    "zod": "^3.18.0",
-    "my-hardhat": "*"
+    "zod": "^3.18.0"
   },
   "devDependencies": {
     "@types/node": "^18.0.0",
@@ -46,6 +47,7 @@
     "autoprefixer": "^10.4.7",
     "eslint": "^8.26.0",
     "eslint-config-next": "13.1.2",
+    "lint-staged": "^13.1.0",
     "postcss": "^8.4.14",
     "prettier": "^2.8.1",
     "prettier-plugin-tailwindcss": "^0.2.1",

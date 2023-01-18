@@ -4,6 +4,7 @@
   "description": "",
   "main": "./dist/types/contracts",
   "scripts": {
+    "precommit": "lint-staged",
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "hardhat compile",
     "dev": "ts-node scripts/dev.ts",
@@ -14,7 +15,10 @@
   "license": "ISC",
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^2.0.0",
-    "hardhat": "^2.12.5"
+    "hardhat": "^2.12.5",
+    "lint-staged": "^13.1.0",
+    "prettier": "^2.8.1",
+    "prettier-plugin-solidity": "^1.1.1"
   },
   "dependencies": {
     "erc721l": "^0.0.10"
