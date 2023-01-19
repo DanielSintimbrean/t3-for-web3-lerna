@@ -7,7 +7,10 @@
     "build": "next build",
     "dev": "next dev",
     "postinstall": "prisma generate && typechain --target=ethers-v5 --out-dir=src/smart-contracts/types src/smart-contracts/abi/*.json",
-    "lint": "next lint",
+    "next-lint": "next lint",
+    "check-types": "tsc --noemit",
+    "eslint": "eslint .",
+    "lint": "npm run eslint && npm run check-types",
     "start": "next start"
   },
   "dependencies": {

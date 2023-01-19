@@ -8,17 +8,23 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "hardhat compile",
     "dev": "ts-node scripts/dev.ts",
-    "build": "tsc --build"
+    "build": "tsc --build",
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^2.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.33.0",
+    "@typescript-eslint/parser": "^5.33.0",
+    "eslint": "^8.26.0",
+    "eslint-config-prettier": "^8.6.0",
     "hardhat": "^2.12.5",
     "lint-staged": "^13.1.0",
     "prettier": "^2.8.1",
-    "prettier-plugin-solidity": "^1.1.1"
+    "prettier-plugin-solidity": "^1.1.1",
+    "typescript": "^4.8.4"
   },
   "dependencies": {
     "erc721l": "^0.0.10"

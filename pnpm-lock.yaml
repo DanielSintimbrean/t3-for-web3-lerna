@@ -13,19 +13,29 @@ importers:
   packages/hardhat:
     specifiers:
       '@nomicfoundation/hardhat-toolbox': ^2.0.0
+      '@typescript-eslint/eslint-plugin': ^5.33.0
+      '@typescript-eslint/parser': ^5.33.0
       erc721l: ^0.0.10
+      eslint: ^8.26.0
+      eslint-config-prettier: ^8.6.0
       hardhat: ^2.12.5
       lint-staged: ^13.1.0
       prettier: ^2.8.1
       prettier-plugin-solidity: ^1.1.1
+      typescript: ^4.8.4
     dependencies:
       erc721l: 0.0.10
     devDependencies:
       '@nomicfoundation/hardhat-toolbox': 2.0.0_qkk7im6hq722gxbuzyccjwsroy
+      '@typescript-eslint/eslint-plugin': 5.48.0_k73wpmdolxikpyqun3p36akaaq
+      '@typescript-eslint/parser': 5.48.0_iukboom6ndih5an6iafl45j2fe
+      eslint: 8.31.0
+      eslint-config-prettier: 8.6.0_eslint@8.31.0
       hardhat: 2.12.5_z6wznmtyb6ovnulj6iujpct7um
       lint-staged: 13.1.0
       prettier: 2.8.1
       prettier-plugin-solidity: 1.1.1_prettier@2.8.1
+      typescript: 4.9.4
 
   packages/t3-for-web3:
     specifiers:
@@ -5781,6 +5791,15 @@ packages:
     transitivePeerDependencies:
       - eslint-import-resolver-webpack
       - supports-color
+    dev: true
+
+  /eslint-config-prettier/8.6.0_eslint@8.31.0:
+    resolution: {integrity: sha512-bAF0eLpLVqP5oEVUFKpMA+NnRFICwn9X8B5jrR9FcqnYBuPbqWEjTEspPWMj5ye6czoSLDweCzSo3Ko7gGrZaA==}
+    hasBin: true
+    peerDependencies:
+      eslint: '>=7.0.0'
+    dependencies:
+      eslint: 8.31.0
     dev: true
 
   /eslint-import-resolver-node/0.3.6:
