@@ -10,14 +10,17 @@
     "prepare": "husky install"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.4.2",
+    "@commitlint/config-conventional": "^17.4.2",
     "commitizen": "^4.2.6",
     "cz-conventional-changelog": "3.3.0",
+    "cz-git": "^1.4.1",
     "husky": "^8.0.3",
     "lerna": "^6.4.0"
   },
   "config": {
     "commitizen": {
-      "path": "cz-conventional-changelog"
+      "path": "node_modules/cz-git"
     }
   }
 }
