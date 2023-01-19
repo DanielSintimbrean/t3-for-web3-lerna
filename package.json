@@ -10,7 +10,14 @@
     "prepare": "husky install"
   },
   "devDependencies": {
+    "commitizen": "^4.2.6",
+    "cz-conventional-changelog": "3.3.0",
     "husky": "^8.0.3",
     "lerna": "^6.4.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   }
 }
