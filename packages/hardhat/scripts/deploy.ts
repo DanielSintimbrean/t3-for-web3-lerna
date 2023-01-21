@@ -1,4 +1,5 @@
-import { ethers } from "hardhat";
+import {ethers, network} from "hardhat";
+import {setNetworkMapping} from "../constants/network-mapping";
 
 async function main() {
   const currentTimestampInSeconds = Math.round(Date.now() / 1000);
@@ -8,12 +9,14 @@ async function main() {
   const lockedAmount = ethers.utils.parseEther("1");
 
   const Lock = await ethers.getContractFactory("Lock");
-  const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
+  const lock = await Lock.deploy(unlockTime, {value: lockedAmount});
 
   await lock.deployed();
 
+  setNetworkMapping(network.name, "Lock", lock.address);
+
   console.log(
-    `Lock with 1 ETH and unlock timestamp ${unlockTime} deployed to ${lock.address}`
+    `Lock with 1 ETH and unlock timestamp ${unlockTime} deployed to ${lock.address}`,
   );
 }
 
