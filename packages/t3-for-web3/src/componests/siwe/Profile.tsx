@@ -1,76 +1,70 @@
-import * as React from "react";
-import { useAccount, useNetwork, useSignMessage } from "wagmi";
-import { SiweMessage } from "siwe";
-import { useIsMounted } from "../../hooks/useIsMounted";
-import { trpc } from "../../utils/trpc";
-import { useSession } from "../../hooks/useSession";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 
-function SignInButton() {
-  const trpcUtils = trpc.useContext();
-  const [state, setState] = React.useState<{
-    loading?: boolean;
-  }>({});
+// function SignInButton() {
+//   const trpcUtils = trpc.useContext();
+//   const [state, setState] = React.useState<{
+//     loading?: boolean;
+//   }>({});
 
-  const { mutateAsync: verifyMutate } = trpc.auth.verify.useMutation({
-    onSuccess: () => {
-      // Refresh session
-      trpcUtils.auth.invalidate();
-    },
-  });
+//   const { mutateAsync: verifyMutate } = trpc.auth.verify.useMutation({
+//     onSuccess: () => {
+//       // Refresh session
+//       trpcUtils.auth.invalidate();
+//     },
+//   });
 
-  const nonceQuery = trpc.auth.nonce.useQuery(undefined, {
-    enabled: false,
-  });
-  const { authenticated } = useSession();
+//   const nonceQuery = trpc.auth.nonce.useQuery(undefined, {
+//     enabled: false,
+//   });
+//   const { authenticated } = useSession();
 
-  const { address } = useAccount();
-  const { chain } = useNetwork();
-  const { signMessageAsync } = useSignMessage();
+//   const { address } = useAccount();
+//   const { chain } = useNetwork();
+//   const { signMessageAsync } = useSignMessage();
 
-  const signIn = async () => {
-    try {
-      const chainId = chain?.id;
-      if (!address || !chainId) return;
+//   const signIn = async () => {
+//     try {
+//       const chainId = chain?.id;
+//       if (!address || !chainId) return;
 
-      const { data: nonceData } = await nonceQuery.refetch();
+//       const { data: nonceData } = await nonceQuery.refetch();
 
-      setState((x) => ({ ...x, loading: true }));
+//       setState((x) => ({ ...x, loading: true }));
 
-      // Create SIWE message with pre-fetched nonce and sign with wallet
-      const message = new SiweMessage({
-        domain: window.location.host,
-        address,
-        statement: "Sign in with Ethereum to the app.",
-        uri: window.location.origin,
-        version: "1",
-        chainId,
-        nonce: nonceData?.nonce,
-      });
-      const signature = await signMessageAsync({
-        message: message.prepareMessage(),
-      });
+//       // Create SIWE message with pre-fetched nonce and sign with wallet
+//       const message = new SiweMessage({
+//         domain: window.location.host,
+//         address,
+//         statement: "Sign in with Ethereum to the app.",
+//         uri: window.location.origin,
+//         version: "1",
+//         chainId,
+//         nonce: nonceData?.nonce,
+//       });
+//       const signature = await signMessageAsync({
+//         message: message.prepareMessage(),
+//       });
 
-      // Verify signature
-      const verifyRes = await verifyMutate({ message, signature });
+//       // Verify signature
+//       const verifyRes = await verifyMutate({ message, signature });
 
-      if (!verifyRes.ok) throw new Error("Error verifying message");
-    } catch (error) {
-    } finally {
-      setState((x) => ({ ...x, loading: false }));
-    }
-  };
+//       if (!verifyRes.ok) throw new Error("Error verifying message");
+//     } catch (error) {
+//     } finally {
+//       setState((x) => ({ ...x, loading: false }));
+//     }
+//   };
 
-  return (
-    <button
-      className="text-white"
-      disabled={state.loading || authenticated}
-      onClick={signIn}
-    >
-      Sign-In with Ethereum
-    </button>
-  );
-}
+//   return (
+//     <button
+//       className="text-white"
+//       disabled={state.loading || authenticated}
+//       onClick={signIn}
+//     >
+//       Sign-In with Ethereum
+//     </button>
+//   );
+// }
 
 export function Profile() {
   // const trpcUtils = trpc.useContext();
