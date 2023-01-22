@@ -17,4 +17,8 @@ jobs:
           node-version: 16.x
           cache: "pnpm"
       - run: pnpm install --frozen-lockfile
-      - run: pnpm run build && pnpm run lint  && pnpm run test
+      - env:
+          DATABASE_URL: file:./db.sqlite
+          SECRET_COOKIE_PASSWORD: "complex_password_at_least_32_characters_long"
+        run: pnpm run build && pnpm run lint  && pnpm run test
+        
