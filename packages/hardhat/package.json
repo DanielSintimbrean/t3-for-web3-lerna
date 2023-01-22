@@ -5,7 +5,7 @@
   "main": "./dist/types/contracts",
   "scripts": {
     "precommit": "lint-staged",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "hardhat test",
     "compile": "hardhat compile",
     "dev": "ts-node scripts/dev.ts",
     "build": "tsc --build",
