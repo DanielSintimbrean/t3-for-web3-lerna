@@ -31,6 +31,10 @@ Una platilla monorepo donde se integra un proyecto Next.js(`T3-for-web3`) con un
 
 ## Empezar a usarlo
 
+[Generar la plantilla](https://github.com/DanielSintimbrean/t3-for-web3-lerna/generate)
+
+----
+
 Clonamos el repositorio
 
 ```sh
@@ -38,17 +42,23 @@ git clone https://github.com/DanielSintimbrean/t3-for-web3-lerna
 cd t3-for-web3-lerna
 ```
 
+----
+
 Instalamos dependencias
 
 ```
 pnpm install
 ```
 
+
+----
 Copiamos el fichero `.env`
 
 ```
 cp packages/t3-for-web3/.env.example packages/t3-for-web3/.env
 ```
+
+----
 
 Probamos la aplicación
 
