@@ -4,15 +4,16 @@ pragma solidity 0.8.9 .0;
 // Uncomment this line to use console.log
 // import "hardhat/console.sol";
 
+/* solhint-disable not-rely-on-time*/
 contract Lock {
-    uint public unlockTime;
+    uint256 public unlockTime;
     address payable public owner;
 
     uint256 private storageVariable = 0;
 
-    event Withdrawal(uint amount, uint when);
+    event Withdrawal(uint256 amount, uint256 when);
 
-    constructor(uint _unlockTime) public payable {
+    constructor(uint256 _unlockTime) payable {
         require(block.timestamp < _unlockTime, "Unlock time in the past");
 
         unlockTime = _unlockTime;
