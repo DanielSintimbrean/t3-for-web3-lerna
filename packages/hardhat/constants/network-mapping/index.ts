@@ -35,11 +35,11 @@ export function getAllNetworkMapping(
   return {};
 }
 
-export function setNetworkMapping(
+export const setNetworkMapping = (
   network: string,
   contract: string,
   address: string,
-) {
+) => {
   if (!fs.existsSync(filePath)) fs.writeFileSync(filePath, JSON.stringify({}));
 
   const contractAddresses = JSON.parse(fs.readFileSync(filePath, "utf-8"));
@@ -47,4 +47,4 @@ export function setNetworkMapping(
   contractAddresses[network] = {[contract]: address};
 
   fs.writeFileSync(filePath, JSON.stringify(contractAddresses, null, 2));
-}
+};
