@@ -9,6 +9,7 @@
     "strict": true,
     "composite": true,
     "baseUrl": ".",
+    "typeRoots": ["./node_modules/@types", "./types/hardhat"],
     "paths": {
       "@network-mapping/*": ["./constants/network-mapping/*"]
     }
