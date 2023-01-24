@@ -1,6 +1,6 @@
-import {ZodFormattedError} from "zod";
+import { ZodFormattedError } from "zod";
 
-import {envSchema} from "./schema";
+import { envSchema } from "./schema";
 
 import dotenv from "dotenv";
 dotenv.config();

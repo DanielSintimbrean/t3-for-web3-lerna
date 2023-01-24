@@ -1,12 +1,10 @@
 import * as hre from "hardhat";
+
 async function main() {
   await hre.run("compile");
 
-  hre.run("node");
+  hre.hardhatArguments.network = "goerli";
 
-  // wait for the node to start
-
-  hre.hardhatArguments.network = "localhost";
   await hre.run("run", {
     script: "./scripts/deploy.ts",
   });

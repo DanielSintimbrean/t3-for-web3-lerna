@@ -1,5 +1,8 @@
 {
   "hardhat": {
     "Lock": "0x5FbDB2315678afecb367f032d93F642f64180aa3"
+  },
+  "goerli": {
+    "Lock": "0x0b6C29CA7C5E9534297e643c85A75C0020997FfD"
   }
 }

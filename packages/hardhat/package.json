@@ -8,7 +8,7 @@
     "test": "hardhat test",
     "compile": "hardhat compile",
     "deploy:goerli": "hardhat run scripts/deploy.ts --network goerli ",
-    "dev": "ts-node scripts/dev.ts",
+    "dev": "ts-node --files scripts/dev.ts",
     "build": "tsc --build",
     "lint": "eslint . && hardhat check",
     "format": "prettier -w . && prettier -w ./**/*.sol"
