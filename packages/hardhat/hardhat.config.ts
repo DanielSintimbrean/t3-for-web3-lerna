@@ -14,11 +14,17 @@ const config: HardhatUserConfig = {
     hardhat: {
       chainId: 1337,
     },
-    goerli: {
-      url: env.GOERLI_RPC_URL,
-      ...(env.PRIVATE_KEY && { accounts: [env.PRIVATE_KEY] }),
-      chainId: 5,
-    },
+    ...(env.PRIVATE_KEY &&
+      env.GOERLI_RPC_URL && {
+        goerli: {
+          url: env.GOERLI_RPC_URL,
+          accounts: [env.PRIVATE_KEY],
+          chainId: 5,
+        },
+      }),
+  },
+  etherscan: {
+    apiKey: env.ETHERSCAN_API_KEY,
   },
 };
 
@@ -26,6 +32,7 @@ extendEnvironment(async (hre) => {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const { setNetworkMapping } = require("./constants/network-mapping/index.ts");
   hre.setNetworkMapping = setNetworkMapping;
+  hre.env = env;
 });
 
 export default config;

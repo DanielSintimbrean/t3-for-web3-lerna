@@ -8,11 +8,7 @@
     "esModuleInterop": true,
     "strict": true,
     "composite": true,
-    "baseUrl": ".",
-    "typeRoots": ["./node_modules/@types", "./types/hardhat"],
-    "paths": {
-      "@network-mapping/*": ["./constants/network-mapping/*"]
-    }
+    "typeRoots": ["./node_modules/@types", "./types/hardhat"]
   },
   "include": ["**/*.ts", "**/*.d.ts"]
 }

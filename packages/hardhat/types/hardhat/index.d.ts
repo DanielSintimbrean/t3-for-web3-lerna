@@ -4,12 +4,14 @@
 import "hardhat/types/config";
 import "hardhat/types/runtime";
 
-import { setNetworkMapping } from "@network-mapping/index";
+import { setNetworkMapping } from "./../../constants/network-mapping/index";
+import { env } from "./../../env";
 
 declare module "hardhat/types/runtime" {
   // This is an example of an extension to the Hardhat Runtime Environment.
   // This new field will be available in tasks' actions, scripts, and tests.
   export interface HardhatRuntimeEnvironment {
     setNetworkMapping: typeof setNetworkMapping;
+    env: typeof env;
   }
 }

@@ -1,4 +1,5 @@
-import { ethers, network, setNetworkMapping } from "hardhat";
+import { ethers, network, setNetworkMapping, env } from "hardhat";
+import { verify } from "../utils/verify";
 
 export async function deployLock() {
   const currentTimestampInSeconds = Math.round(Date.now() / 1000);
@@ -13,6 +14,14 @@ export async function deployLock() {
   await lock.deployed();
 
   console.log(`\nLock ==> deployed to ${lock.address} on ${network.name}\n`);
+
+  if (
+    env.ETHERSCAN_API_KEY &&
+    network.name !== "hardhat" &&
+    network.name !== "localhost"
+  ) {
+    await verify(lock.address, [unlockTime]);
+  }
 
   setNetworkMapping(network.name, "Lock", lock.address);
 }

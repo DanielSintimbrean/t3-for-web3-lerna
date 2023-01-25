@@ -45,8 +45,8 @@ export const setNetworkMapping = (
   const contractAddresses = JSON.parse(fs.readFileSync(filePath, "utf-8"));
 
   contractAddresses[network] = {
-    [contract]: address,
     ...contractAddresses[network],
+    [contract]: address,
   };
 
   fs.writeFileSync(filePath, JSON.stringify(contractAddresses, null, 2));
