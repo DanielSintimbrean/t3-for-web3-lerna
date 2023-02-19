@@ -78,7 +78,7 @@ importers:
       '@ethersproject/bytes': ^5.7.0
       '@ethersproject/providers': ^5.7.2
       '@prisma/client': ^4.5.0
-      '@rainbow-me/rainbowkit': ^0.8.1
+      '@rainbow-me/rainbowkit': ^0.11.0
       '@tanstack/query-core': ^4.20.4
       '@tanstack/react-query': ^4.16.0
       '@trpc/client': ^10.0.0
@@ -120,7 +120,7 @@ importers:
       '@ethersproject/bytes': 5.7.0
       '@ethersproject/providers': 5.7.2
       '@prisma/client': 4.8.1_prisma@4.8.1
-      '@rainbow-me/rainbowkit': 0.8.1_vmaxie6vajvpnies3tg6hwxokm
+      '@rainbow-me/rainbowkit': 0.11.0_vmaxie6vajvpnies3tg6hwxokm
       '@tanstack/query-core': 4.20.9
       '@tanstack/react-query': 4.20.9_biqbaboplfbrettd7655fr4n2y
       '@trpc/client': 10.8.1_@trpc+server@10.8.1
@@ -2668,14 +2668,14 @@ packages:
     resolution: {integrity: sha512-93tctjNXcIS+i/e552IO6tqw17sX8liivv8WX9lDMCpEEe3ci+nT9F+1oHtAafqruXLepKF80i/D20Mm+ESlOw==}
     requiresBuild: true
 
-  /@rainbow-me/rainbowkit/0.8.1_vmaxie6vajvpnies3tg6hwxokm:
-    resolution: {integrity: sha512-A8BjihvgCY/xjQWOpqgOce+uO4mmIV4Qlo3XMF87kk5WNmyLLaPx2oYTJQz1uOinWE77h4G0HozJr5wnrermgw==}
+  /@rainbow-me/rainbowkit/0.11.0_vmaxie6vajvpnies3tg6hwxokm:
+    resolution: {integrity: sha512-bGtmHI8S1yf4+1KOQaNpk5AamFm6hz4yRG9aOvYVliV5687OtlUj4VCx0YdYJgm7hgZdt/Gj4UHHTY3pOhSpgw==}
     engines: {node: '>=12.4'}
     peerDependencies:
       ethers: '>=5.5.1'
       react: '>=17'
       react-dom: '>=17'
-      wagmi: 0.9.x
+      wagmi: 0.11.x
     dependencies:
       '@vanilla-extract/css': 1.9.1
       '@vanilla-extract/dynamic': 2.0.2
@@ -7082,18 +7082,6 @@ packages:
       debug:
         optional: true
 
-  /follow-redirects/1.15.2_debug@4.3.4:
-    resolution: {integrity: sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==}
-    engines: {node: '>=4.0'}
-    peerDependencies:
-      debug: '*'
-    peerDependenciesMeta:
-      debug:
-        optional: true
-    dependencies:
-      debug: 4.3.4
-    dev: true
-
   /for-each/0.3.3:
     resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==}
     dependencies:
@@ -11450,7 +11438,7 @@ packages:
     dependencies:
       command-exists: 1.2.9
       commander: 3.0.2
-      follow-redirects: 1.15.2_debug@4.3.4
+      follow-redirects: 1.15.2
       fs-extra: 0.30.0
       js-sha3: 0.8.0
       memorystream: 0.3.1
@@ -12967,7 +12955,7 @@ packages:
       require-directory: 2.1.1
       string-width: 4.2.3
       y18n: 5.0.8
-      yargs-parser: 20.2.4
+      yargs-parser: 20.2.9
     dev: true
 
   /yargs/17.6.2:
