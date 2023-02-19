@@ -2,7 +2,7 @@ version: "3"
 
 services:
   postgres:
-    image: postgres:15.1
+    image: postgres:15.2
     healthcheck:
       test: ["CMD", "pg_isready", "-q", "-d", "postgres", "-U", "root"]
       timeout: 45s
