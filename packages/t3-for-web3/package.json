@@ -37,7 +37,7 @@
     "superjson": "1.12.2",
     "tozod": "^3.0.0",
     "typechain": "^8.1.1",
-    "wagmi": "^0.10.0",
+    "wagmi": "^0.11.0",
     "zod": "^3.18.0"
   },
   "devDependencies": {
