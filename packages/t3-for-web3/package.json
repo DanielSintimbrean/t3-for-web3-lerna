@@ -27,7 +27,7 @@
     "@trpc/react-query": "^10.0.0",
     "@trpc/server": "^10.0.0",
     "@typechain/ethers-v5": "^10.2.0",
-    "ethers": "^5.7.2",
+    "ethers": "^6.0.0",
     "iron-session": "^6.3.1",
     "my-hardhat": "*",
     "next": "13.1.2",
